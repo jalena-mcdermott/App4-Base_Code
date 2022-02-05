@@ -6,8 +6,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-Author 1
-Author 2
+Professor Timothy Riedal
+Jalena McDermott
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -25,7 +25,170 @@ blah, blah, blah, blah
 
    <head> 
       
-	   PUT YOUR OLD CODE IN HERE
+	<!DOCTYPE html> 
+<html> 
+	
+   <head> 
+      <title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+	
+	
+        var allergy_count = 0;
+        var cold_count = 0;
+//adds one when corresponding button is pressed.
+	
+        function allergyAdd(){
+            allergy_count = allergy_count + 1;
+		
+        }
+
+        function coldAdd(){
+            cold_count = cold_count + 1;
+        }
+	
+	function results(){
+		var allergyPercent = (allergy_count/4.0) * 100; // imputs allergy variable divided by total (4) then * 100 to get percentage
+		var coldPercent = (cold_count/4.0) * 100;
+		var resultText = document.getElementById("results"); //captures the results and when 'results' button is pressed
+		resultText.innerHTML = "Probability it's allergies =" + allergyPercent + "%" + "<br> Probability it's a cold =" + coldPercent + "%";
+		<!-- imputs results on page using IDs; <br> means line break; printed variable with "+" -->
+	}
+	
+  </script>
+
+<-- The following determines the style of the new -->
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-win8-olive"> <!--codes for header design-->
+	<h1>Cold or Allergies?</h1> <!-- page title-->
+</div>
+	
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	
+// next page begins and first question is asked
+<div class="page" id="one"> 
+	// id identifies what the page is called and how to reference it from there on
+	<div id="header" class="w3-container w3-win8-olive"> <!-- shape and color of the header-->
+		<h1>Question 1</h1>
+	</div>
+	
+    <div id="content" class="w3-container">
+	<p>Are your eyes watery or itchy?</p>   <!-- displays question-->
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a> 
+	    <!--codes for button shape (rounded edges) and color (blue); adds one to allergy if yes is clicked and one to cold if no is clicked-->
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+ </div><!-- AllergyAdd and coldAdd place values in each category for final calculations -->
+	
+// href=#two means that once the button is clicked, page two shows up
+	
+</div>
+	
+/* 
+repeat same code for following 3 pages
+change page id and questions
+I also changed the color of the header for each page
+*/
+<div class="page" id="two">
+	<div class="w3-container w3-win8-olive">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have a fever?</p>    
+		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
+         	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a> 
+		
+ </div>
+	
+//moving on to page 3	
+	</div>
+<div class="page" id="three">
+	<div class="w3-container w3-win8-olive">
+		<h1>Question 3</h1>
+		
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have a sore throat?</p>    
+		<a href="#four"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
+         	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+		
+//last question
+	</div>
+<div class="page" id="four">
+	<div class="w3-container w3-win8-olive">
+		<h1>Question 4</h1>
+		
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Are your symptoms seasonal?</p>
+		<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
+		<a href="#five"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+	
+</div>	
+//results page 
+	</div>
+<div class="page" id="five">
+	 <div class="w3-container w3-win8-olive">
+		 <h1>Results</h1> 	 
+	 </div>
+	<div id="content" class="w3-container">
+		
+		<a href="#six"  onclick="results();" class="w3-btn w3-blue w3-round-xxlarge"> Show Results </a> 
+		<!--when button is clicked, results fuction runs and displays results on page six-->
+		
+<div class="page" id="six">
+	 <div class="w3-container w3-win8-olive">
+		 <h1>Results</h1> 	 
+
+	</div>
+	
+	<div> 
+	<p id="results"> </p>
+		<!--used as place holder for results function-->
+	
+	</div>
+	
+
+	
+<footer class="w3-bottom w3-container w3-win8-olive">
+	<p>DIY!</p> 
+</footer>
 	   
    </body>
 </html>
