@@ -38,22 +38,22 @@ blah, blah, blah, blah
 
 	
 	
-        var allergy_count = 0;
-        var cold_count = 0;
-//adds one when corresponding button is pressed.
+        var malignant_count = 0;
+        var benign_count = 0;
+<!--adds one when corresponding button is pressed.-->
 	
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
+        function malignantAdd(){
+            malignant_count = malignant_count + 1;
 		
         }
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
+        function benignAdd(){
+            benign_count = benign_count + 1;
         }
 	
 	function results(){
 		var allergyPercent = (allergy_count/4.0) * 100; // imputs allergy variable divided by total (4) then * 100 to get percentage
-		var coldPercent = (cold_count/4.0) * 100;
+		var coldPercent = (benign_count/4.0) * 100;
 		var resultText = document.getElementById("results"); //captures the results and when 'results' button is pressed
 		resultText.innerHTML = "Probability it's allergies =" + allergyPercent + "%" + "<br> Probability it's a cold =" + coldPercent + "%";
 		<!-- imputs results on page using IDs; <br> means line break; printed variable with "+" -->
@@ -64,6 +64,12 @@ blah, blah, blah, blah
 <-- The following determines the style of the new -->
 
 <style>	
+	
+       img, object{
+            	max-height:90%;
+        	max-width:90%;
+        	}
+
 .body {
      margin: 0em;
 }
@@ -91,7 +97,7 @@ blah, blah, blah, blah
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Afraid your mole may be cancerous? Take this short quiz to find out if you should get it checked out or if there's no need to worry!</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -99,42 +105,44 @@ blah, blah, blah, blah
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 	
-// next page begins and first question is asked
+<!--next page begins and first question is asked-->
 <div class="page" id="one"> 
-	// id identifies what the page is called and how to reference it from there on
+	<!--id identifies what the page is called and how to reference it from there on-->
 	<div id="header" class="w3-container w3-win8-olive"> <!-- shape and color of the header-->
 		<h1>Question 1</h1>
 	</div>
 	
     <div id="content" class="w3-container">
-	<p>Are your eyes watery or itchy?</p>   <!-- displays question-->
-		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a> 
+	<p>Is it symmetrical?</p>   <!-- displays question-->
+		<a href="#two"  onclick="benignAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a> 
 	    <!--codes for button shape (rounded edges) and color (blue); adds one to allergy if yes is clicked and one to cold if no is clicked-->
-         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+         	<a href="#two"  onclick="malignantAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+	    <img src=
+	   
  </div><!-- AllergyAdd and coldAdd place values in each category for final calculations -->
 	
-// href=#two means that once the button is clicked, page two shows up
+<!--href=#two means that once the button is clicked, page two shows up-->
 	
 </div>
 	
-/* 
+<!-- 
 repeat same code for following 3 pages
 change page id and questions
 I also changed the color of the header for each page
-*/
-<div class="page" id="two">
+-->
+	<div class="page" id="two">
 	<div class="w3-container w3-win8-olive">
 		<h1>Question 2</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Do you have a fever?</p>    
-		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
-         	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a> 
+		<p>Is your mole multicolored?</p>    
+		<a href="#three"  onclick="malignantAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
+         	<a href="#three"  onclick="benignAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a> 
 		
  </div>
 	
-//moving on to page 3	
+<!--moving on to page 3	-->
 	</div>
 <div class="page" id="three">
 	<div class="w3-container w3-win8-olive">
@@ -143,11 +151,11 @@ I also changed the color of the header for each page
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Do you have a sore throat?</p>    
-		<a href="#four"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
-         	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+		<p>Is the boarder smoothe?</p>    
+		<a href="#four"  onclick="benignAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
+         	<a href="#four"  onclick="malignantAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
 		
-//last question
+<!--last question-->
 	</div>
 <div class="page" id="four">
 	<div class="w3-container w3-win8-olive">
@@ -156,12 +164,12 @@ I also changed the color of the header for each page
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal?</p>
-		<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
-		<a href="#five"  onclick="coldAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
+		<p>Is your mole bigger than the diameter of a pencil eraser?</p>
+		<a href="#five"  onclick="malignantAdd();" class="w3-btn w3-blue w3-round-xxlarge">Yes</a>
+		<a href="#five"  onclick="benignAdd();" class="w3-btn w3-blue w3-round-xxlarge">No</a>
 	
 </div>	
-//results page 
+<!--results page--> 
 	</div>
 <div class="page" id="five">
 	 <div class="w3-container w3-win8-olive">
