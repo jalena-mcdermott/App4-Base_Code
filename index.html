@@ -52,10 +52,10 @@ blah, blah, blah, blah
         }
 	
 	function results(){
-		var allergyPercent = (allergy_count/4.0) * 100; // imputs allergy variable divided by total (4) then * 100 to get percentage
-		var coldPercent = (benign_count/4.0) * 100;
+		var malignantPercent = (malignant_count/4.0) * 100; // imputs malignant variable divided by total (4) then * 100 to get percentage
+		var benignPercent = (benign_count/4.0) * 100;
 		var resultText = document.getElementById("results"); //captures the results and when 'results' button is pressed
-		resultText.innerHTML = "Probability it's allergies =" + allergyPercent + "%" + "<br> Probability it's a cold =" + coldPercent + "%";
+		resultText.innerHTML = "Probability it's dangerous =" + malignantPercent + "%" + "<br> Probability it's just a mole/mark =" + benignPercent + "%";
 		<!-- imputs results on page using IDs; <br> means line break; printed variable with "+" -->
 	}
 	
@@ -92,7 +92,7 @@ blah, blah, blah, blah
 </style>
 
 <body>
-<div id="header" class="w3-container w3-win8-olive"> <!--codes for header design-->
+<div id="header" class="w3-container w3-flat-win8-olive"> <!--codes for header design-->
 	<h1>Cold or Allergies?</h1> <!-- page title-->
 </div>
 	
@@ -108,7 +108,7 @@ blah, blah, blah, blah
 <!--next page begins and first question is asked-->
 <div class="page" id="one"> 
 	<!--id identifies what the page is called and how to reference it from there on-->
-	<div id="header" class="w3-container w3-win8-olive"> <!-- shape and color of the header-->
+	<div id="header" class="w3-container w3-flat-win8-olive"> <!-- shape and color of the header-->
 		<h1>Question 1</h1>
 	</div>
 	
@@ -131,7 +131,7 @@ change page id and questions
 I also changed the color of the header for each page
 -->
 	<div class="page" id="two">
-	<div class="w3-container w3-win8-olive">
+	<div class="w3-container w3-flat-win8-olive">
 		<h1>Question 2</h1>
 	</div>
 	
@@ -145,7 +145,7 @@ I also changed the color of the header for each page
 <!--moving on to page 3	-->
 	</div>
 <div class="page" id="three">
-	<div class="w3-container w3-win8-olive">
+	<div class="w3-container w3-flat-win8-olive">
 		<h1>Question 3</h1>
 		
 	</div>
@@ -158,7 +158,7 @@ I also changed the color of the header for each page
 <!--last question-->
 	</div>
 <div class="page" id="four">
-	<div class="w3-container w3-win8-olive">
+	<div class="w3-container w3-flat-win8-olive">
 		<h1>Question 4</h1>
 		
 	</div>
@@ -172,7 +172,7 @@ I also changed the color of the header for each page
 <!--results page--> 
 	</div>
 <div class="page" id="five">
-	 <div class="w3-container w3-win8-olive">
+	 <div class="w3-container w3-flat-win8-olive">
 		 <h1>Results</h1> 	 
 	 </div>
 	<div id="content" class="w3-container">
@@ -181,7 +181,7 @@ I also changed the color of the header for each page
 		<!--when button is clicked, results fuction runs and displays results on page six-->
 		
 <div class="page" id="six">
-	 <div class="w3-container w3-win8-olive">
+	 <div class="w3-container w3-flat-win8-olive">
 		 <h1>Results</h1> 	 
 
 	</div>
@@ -194,7 +194,7 @@ I also changed the color of the header for each page
 	
 
 	
-<footer class="w3-bottom w3-container w3-win8-olive">
+<footer class="w3-bottom w3-container w3-flat-win8-olive">
 	<p>DIY!</p> 
 </footer>
 	   
